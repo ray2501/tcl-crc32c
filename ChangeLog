@@ -1,0 +1,6 @@
+2020-05-24  Danilo Chang
+
+    * Add new commands: crc32c::value and crc32c::extend
+    * Link to crc32c library
+    * Initial
+

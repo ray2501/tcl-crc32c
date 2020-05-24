@@ -1,0 +1,40 @@
+#
+# Test cases for crc32c package
+#
+
+if {[lsearch [namespace children] ::tcltest] == -1} {
+    package require tcltest
+    namespace import ::tcltest::*
+}
+
+package require crc32c
+
+test crc32c-1.1 {wrong parametes} {
+    -body {
+        set result [crc32c::value]
+    }    
+    -returnCodes error
+    -match glob
+    -result {wrong # args*}
+}
+
+test crc32c-1.2 {wrong parametes} {
+    -body {
+        set result [crc32c::extend]
+    }
+    -returnCodes error
+    -match glob
+    -result {wrong # args*}
+}
+
+test crc32c-1.3 {value function test} {
+    set result [crc32c::value "tcl-crc32c"]
+} {2584064215}
+
+test crc32c-1.4 {extend function test} {
+    set result [crc32c::extend 0 "tcl-crc32c"]
+} {2584064215}
+
+# cleanup
+::tcltest::cleanupTests
+return
