@@ -35,6 +35,17 @@ test crc32c-1.4 {extend function test} {
     set result [crc32c::extend 0 "tcl-crc32c"]
 } {2584064215}
 
+test crc32c-1.5 {extend function test} {
+    set result1 [crc32c::value "tcl-crc32ctcl-crc32c"]
+    set result2 [crc32c::extend 0 "tcl-crc32c"]
+    set result2 [crc32c::extend $result2 "tcl-crc32c"]
+    if {$result1 == $result2} {
+        set result 1
+    } else {
+        set result 0
+    }
+} {1}
+
 # cleanup
 ::tcltest::cleanupTests
 return
