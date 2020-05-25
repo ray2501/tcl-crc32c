@@ -94,7 +94,7 @@ Crc32c_Init(Tcl_Interp *interp)
 }
 
 static int CRC32C_EXTEND(void *cd, Tcl_Interp *interp, int objc,Tcl_Obj *const*objv){
-  const unsigned char *str = NULL;
+  const uint8_t *str = NULL;
   int length = 0;
   uint32_t value = 0;
   uint32_t result = 0;
@@ -125,7 +125,7 @@ static int CRC32C_EXTEND(void *cd, Tcl_Interp *interp, int objc,Tcl_Obj *const*o
 }
 
 static int CRC32C_VALUE(void *cd, Tcl_Interp *interp, int objc,Tcl_Obj *const*objv){
-  const unsigned char *str = NULL; 
+  const uint8_t *str = NULL;
   int length = 0;
   uint32_t result = 0;
   char resValue[16];
