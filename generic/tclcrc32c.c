@@ -74,8 +74,8 @@ Crc32c_Init(Tcl_Interp *interp)
     }
 
     /*
-     * Create the namespace named re2.
-     * re2 command is too short, we need a namespace.
+     * Create the namespace named crc32c.
+     * crc32c command is too short, we need a namespace.
      */
     nsPtr = Tcl_CreateNamespace(interp, NS, NULL, NULL);
     if (nsPtr == NULL) {
