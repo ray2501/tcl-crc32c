@@ -1,3 +1,7 @@
+2023-12-13  Danilo Chang
+
+    * Update tclconfig files
+
 2020-05-24  Danilo Chang
 
     * Add new commands: crc32c::value and crc32c::extend
