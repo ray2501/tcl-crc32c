@@ -4,7 +4,7 @@
 
 Name:          tcl-crc32c
 Summary:       Tcl bindings for crc32c library
-Version:       0.1
+Version:       0.2
 Release:       0
 License:       MIT
 Group:         Development/Libraries/Tcl
