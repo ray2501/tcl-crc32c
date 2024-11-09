@@ -66,7 +66,7 @@ Crc32c_Init(Tcl_Interp *interp)
      * This may work with 8.0, but we are using strictly stubs here,
      * which requires 8.1.
      */
-    if (Tcl_InitStubs(interp, "8.5", 0) == NULL) {
+    if (Tcl_InitStubs(interp, TCL_VERSION, 0) == NULL) {
 	return TCL_ERROR;
     }
     if (Tcl_PkgProvide(interp, PACKAGE_NAME, PACKAGE_VERSION) != TCL_OK) {
@@ -82,11 +82,11 @@ Crc32c_Init(Tcl_Interp *interp)
         return TCL_ERROR;
     }
 
-    Tcl_CreateObjCommand(interp, NS "::extend", 
+    Tcl_CreateObjCommand(interp, "::" NS "::extend", 
         (Tcl_ObjCmdProc *) CRC32C_EXTEND,
         (ClientData)NULL, (Tcl_CmdDeleteProc *)NULL);
 
-    Tcl_CreateObjCommand(interp, NS "::value", 
+    Tcl_CreateObjCommand(interp, "::" NS "::value", 
         (Tcl_ObjCmdProc *) CRC32C_VALUE,
         (ClientData)NULL, (Tcl_CmdDeleteProc *)NULL);
 
@@ -95,7 +95,7 @@ Crc32c_Init(Tcl_Interp *interp)
 
 static int CRC32C_EXTEND(void *cd, Tcl_Interp *interp, int objc,Tcl_Obj *const*objv){
   const uint8_t *str = NULL;
-  int length = 0;
+  Tcl_Size length = 0;
   uint32_t value = 0;
   uint32_t result = 0;
   char resValue[16];
@@ -126,7 +126,7 @@ static int CRC32C_EXTEND(void *cd, Tcl_Interp *interp, int objc,Tcl_Obj *const*o
 
 static int CRC32C_VALUE(void *cd, Tcl_Interp *interp, int objc,Tcl_Obj *const*objv){
   const uint8_t *str = NULL;
-  int length = 0;
+  Tcl_Size length = 0;
   uint32_t result = 0;
   char resValue[16];
     
