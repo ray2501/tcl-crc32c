@@ -77,7 +77,7 @@ Crc32c_Init(Tcl_Interp *interp)
      * Create the namespace named crc32c.
      * crc32c command is too short, we need a namespace.
      */
-    nsPtr = Tcl_CreateNamespace(interp, NS, NULL, NULL);
+    nsPtr = Tcl_CreateNamespace(interp, "::" NS, NULL, NULL);
     if (nsPtr == NULL) {
         return TCL_ERROR;
     }
